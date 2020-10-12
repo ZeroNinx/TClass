@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{61B5B078-451E-4650-0B7A-FE8D921C3A17}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "TClass",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
