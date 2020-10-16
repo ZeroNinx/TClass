@@ -2,7 +2,7 @@ Binaries
 DerivedDataCache
 Intermediate
 Saved
-/Content/MobileStarterContent
+Content/MobileStarterContent/
 .vscode
 .vs
 *.VC.db
