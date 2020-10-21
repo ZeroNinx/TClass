@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Widgets/SWidget.h"
 #include "GameFramework/GameModeBase.h"
 #include "GM_MainMenu.generated.h"
 
@@ -13,5 +14,5 @@ UCLASS()
 class TCLASS_API AGM_MainMenu : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
 };
