@@ -64,6 +64,9 @@ void UTClassGameInstance::AssignPlayerController_Implementation(APlayerControlle
 	PlayerController = GetPrimaryPlayerController();
 	UserID = GetPrimaryPlayerUniqueId().ToSharedRef();
 
+	if (PlayerController)
+		UE_LOG(LogTemp, Warning, TEXT("Controller Assigned Success"));
+
 }
 
 //¥¥Ω®”Œœ∑

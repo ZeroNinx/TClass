@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "UMG.h"
 #include "TClassGameInstance.h"
+#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "UMG_MainMenu.generated.h"
 
@@ -27,9 +28,12 @@ public:
 
 protected:
 
+	//游戏实例
+	UTClassGameInstance* GameInstance;
+
 	//创建游戏按钮
 	UButton* btnCreate;
-	
+
 	UFUNCTION()
 	void btnCreateClick();
 

@@ -5,13 +5,15 @@
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
 #include "Blueprint/UserWidget.h"
-#include "UMG_Loading.h"
 #include "Net/UnrealNetwork.h"
 #include "Online.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/PlayerState.h"
 #include "GameFramework/PlayerController.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
+
+#include "UMG_Loading.h"
+
 #include "TClassGameInstance.generated.h"
 
 /**
@@ -33,7 +35,7 @@ public:
     //关闭时
     virtual void Shutdown() override;
 
-    //注册控制器
+    //分配控制器
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void AssignPlayerController(APlayerController* InController);
 
