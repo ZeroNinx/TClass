@@ -22,7 +22,7 @@ UTClassGameInstance::UTClassGameInstance():Super::UGameInstance()
 	
 }
 
-//生成时
+//初始化
 void UTClassGameInstance::Init()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Creating GameInstant..."));

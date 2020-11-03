@@ -32,6 +32,12 @@ protected:
 	UTClassGameInstance* GameInstance;
 
 	//创建游戏按钮
+	UButton* btnLocal;
+
+	UFUNCTION()
+	void btnLocalClick();
+
+	//创建游戏按钮
 	UButton* btnCreate;
 
 	UFUNCTION()

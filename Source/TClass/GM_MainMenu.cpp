@@ -24,6 +24,12 @@ void AGM_MainMenu::StartPlay()
 		MainMenu = CreateWidget<UUMG_MainMenu>(GetWorld(), MainMenuClass);
 		//添加到窗口
 		MainMenu->AddToViewport();
+
+		//显示并启用鼠标
+		PlayerController->bShowMouseCursor = true;
+		PlayerController->bEnableClickEvents = true;
+		PlayerController->bEnableMouseOverEvents = true;
+
 	}
 	else
 	{

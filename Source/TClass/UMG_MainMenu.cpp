@@ -23,6 +23,7 @@ bool UUMG_MainMenu::Initialize()
 	GameInstance = Cast<UTClassGameInstance>(GetGameInstance());
 
 	//寻找按钮
+	btnLocal = (UButton*)GetWidgetFromName(TEXT("btnLocal"));
 	btnCreate = (UButton*)GetWidgetFromName(TEXT("btnCreate"));
 	btnJoin = (UButton*)GetWidgetFromName(TEXT("btnJoin"));
 	btnExit = (UButton*)GetWidgetFromName(TEXT("btnExit"));
@@ -30,6 +31,11 @@ bool UUMG_MainMenu::Initialize()
 	UE_LOG(LogTemp, Warning, TEXT("Creating main menu..."));
 
 	///添加点击事件
+
+	//本地游戏按钮
+	FScriptDelegate btnLocalDel;
+	btnLocalDel.BindUFunction(this, "btnLocalClick");
+	btnLocal->OnClicked.Add(btnLocalDel);
 
 	//开始游戏按钮
 	FScriptDelegate btnCreateDel;
@@ -52,7 +58,15 @@ bool UUMG_MainMenu::Initialize()
 	return true;
 }
 
-//创建游戏点击事件
+//本地游戏按钮点击事件
+void UUMG_MainMenu::btnLocalClick()
+{
+	//打开本地关卡
+	UGameplayStatics::OpenLevel(GetWorld(),
+		FName("Map_Local"));
+}
+
+//创建游戏按钮点击事件
 void UUMG_MainMenu::btnCreateClick()
 {
 	//创建会话
@@ -60,7 +74,7 @@ void UUMG_MainMenu::btnCreateClick()
 }
 
 
-//加入游戏点击事件
+//加入游戏按钮点击事件
 void UUMG_MainMenu::btnJoinClick()
 {
 	//显示载入界面
@@ -70,7 +84,7 @@ void UUMG_MainMenu::btnJoinClick()
 	GameInstance->ClientSession();
 }
 
-//退出游戏点击事件
+//退出游戏按钮点击事件
 void UUMG_MainMenu::btnExitClick()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Quiting Game..."));

@@ -4,11 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
-#include "Blueprint/UserWidget.h"
-#include "Net/UnrealNetwork.h"
 #include "Online.h"
 #include "Kismet/GameplayStatics.h"
-#include "GameFramework/PlayerState.h"
 #include "GameFramework/PlayerController.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 
@@ -29,7 +26,7 @@ public:
     //构造函数
     UTClassGameInstance();
 
-	//生成时
+	//初始化
 	virtual void Init() override;
     
     //关闭时
