@@ -20,6 +20,13 @@ struct FPlayerScore
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int PlayerScore;
 
+	//玩家击杀
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	int Kill;
+
+	//玩家死亡
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	int Died;
 };
 
 
@@ -41,6 +48,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetScore(int NewScore);
 
+	//设定击杀
+	UFUNCTION(BlueprintCallable)
+	void SetKill(int NewKill);
+
+	//设定死亡
+	UFUNCTION(BlueprintCallable)
+	void SetDied(int NewDied);
+
 	//获取信息
 	UFUNCTION(BlueprintCallable)
 	FPlayerScore GetPlayerInfo();
@@ -50,5 +65,9 @@ protected:
 	//玩家得分
 	UPROPERTY(BlueprintReadWrite)
 	FPlayerScore PlayerScore;
+
+	//玩家生命值
+	UPROPERTY(BlueprintReadWrite)
+	int Life = 100;
 
 };

@@ -15,6 +15,18 @@ void ATPSPlayerState::SetScore(int NewScore)
 	PlayerScore.PlayerScore = NewScore;
 }
 
+//设定击杀
+void ATPSPlayerState::SetKill(int NewKill)
+{
+	PlayerScore.Kill = NewKill;
+}
+
+//设定死亡
+void ATPSPlayerState::SetDied(int NewDied)
+{
+	PlayerScore.Died = NewDied;
+}
+
 //获取玩家信息
 FPlayerScore ATPSPlayerState::GetPlayerInfo()
 {
