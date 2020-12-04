@@ -4,13 +4,13 @@
 #include "UMG_TPS.h"
 
 //设定分数
-void UUMG_TPS::SetScore_Implementation(int Player1Score, int Player2Score)
+void UUMG_TPS::SetScore_Implementation(int Score)
 {
 
 }
 
 //设定击杀
-void UUMG_TPS::SetKill_Implementation(int Player1Kill, int Player2Kill)
+void UUMG_TPS::SetKill_Implementation(int Kill)
 {
 
 }

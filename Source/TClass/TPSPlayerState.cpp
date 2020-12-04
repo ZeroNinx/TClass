@@ -3,16 +3,21 @@
 
 #include "TPSPlayerState.h"
 
+ATPSPlayerState::ATPSPlayerState()
+{
+	PlayerScore = FPlayerScore();
+}
+
 //设定名称
 void ATPSPlayerState::SetName(FString NewName)
 {
-	PlayerScore.PlayerName = NewName;
+	PlayerScore.Name = NewName;
 }
 
 //设定分数
 void ATPSPlayerState::SetScore(int NewScore)
 {
-	PlayerScore.PlayerScore = NewScore;
+	PlayerScore.Score = NewScore;
 }
 
 //设定击杀

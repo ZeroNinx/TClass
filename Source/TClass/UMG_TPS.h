@@ -20,11 +20,11 @@ public:
 	
 	//设定分数
 	UFUNCTION(BlueprintNativeEvent,BlueprintCallable)
-	void SetScore(int Player1Score,int Player2Score);
+	void SetScore(int Score);
 
 	//设定击杀
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void SetKill(int Player1Kill, int Player2Kill);
+	void SetKill(int Kill);
 
 	//设定预备时间
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)

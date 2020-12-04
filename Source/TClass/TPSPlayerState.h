@@ -14,19 +14,19 @@ struct FPlayerScore
 
 	//玩家名称
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	FString PlayerName;
+	FString Name="";
 
 	//玩家得分
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int PlayerScore;
+	int Score=0;
 
 	//玩家击杀
 	UPROPERTY(BlueprintReadWrite,EditAnywhere)
-	int Kill;
+	int Kill=0;
 
 	//玩家死亡
 	UPROPERTY(BlueprintReadWrite,EditAnywhere)
-	int Died;
+	int Died=0;
 };
 
 
@@ -39,6 +39,8 @@ class TCLASS_API ATPSPlayerState : public APlayerState
 	GENERATED_BODY()
 
 public:
+
+	ATPSPlayerState();
 	
 	//设定名称
 	UFUNCTION(BlueprintCallable)

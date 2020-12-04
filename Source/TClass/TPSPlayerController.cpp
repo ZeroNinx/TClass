@@ -7,12 +7,28 @@
 void ATPSPlayerController::ClientPostLogin_Implementation()
 {
 
+	//UKismetSystemLibrary::PrintString(this, TEXT("Client Post Login"));
+
+	//初始化参数
+	TPSPlayerState = Cast<ATPSPlayerState>(PlayerState);
+
 	//初始化界面
 	SetupUMG();
+
+	//初始化玩家位置
+	PlayerRestart();
 
 	//设置输入模式仅游戏
 	UWidgetBlueprintLibrary::SetInputMode_GameOnly(this);
 
+}
+
+//玩家重生
+void ATPSPlayerController::PlayerRestart()
+{
+	AGM_TPS* GameMode = Cast<AGM_TPS>(UGameplayStatics::GetGameMode(GetWorld()));
+	if (GameMode)
+		GameMode->RespawnPlayerEvent(this);
 }
 
 //初始化UMG界面
@@ -29,7 +45,7 @@ void ATPSPlayerController::SetupUMG()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("UMG_TPS Load Failed..."));
+		UKismetSystemLibrary::PrintString(this,TEXT("UMG_TPS Load Failed..."));
 	}
 
 	//查找界面蓝图
@@ -43,6 +59,40 @@ void ATPSPlayerController::SetupUMG()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("UMG_Control Load Failed..."));
+		UKismetSystemLibrary::PrintString(this, TEXT("UMG_Control Load Failed..."));
 	}
+}
+
+//设定分数
+void ATPSPlayerController::SetScore_Implementation(int Score)
+{
+	if(TPSPlayerState)
+		TPSPlayerState->SetScore(Score);
+	UMG_TPS->SetScore(Score);
+}
+
+//设定击杀
+void ATPSPlayerController::SetKill_Implementation(int Kill)
+{
+	if(TPSPlayerState)
+		TPSPlayerState->SetKill(Kill);
+	UMG_TPS->SetKill(Kill);
+}
+
+//设定准备时间
+void ATPSPlayerController::SetReadyTime_Implementation(int Time)
+{
+	UMG_TPS->SetReadyTime(Time);
+}
+
+//设定游戏时间
+void ATPSPlayerController::SetGameplayTime_Implementation(int Time)
+{
+	UMG_TPS->SetGameplayTime(Time);
+}
+
+//设定游戏结束
+void ATPSPlayerController::SetGameOver_Implementation(int Score, int Kill, int Die)
+{
+	UMG_TPS->SetGameOver(Score, Kill, Die);
 }
