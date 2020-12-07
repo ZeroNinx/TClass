@@ -23,6 +23,7 @@ class TCLASS_API ATPSPlayerController : public APlayerController
 
 protected:
 
+	//玩家状态
 	UPROPERTY(BlueprintReadWrite)
 	ATPSPlayerState* TPSPlayerState;
 
@@ -41,7 +42,7 @@ public:
 	void ClientPostLogin();
 
 	//玩家重生
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(Server,Reliable,BlueprintCallable)
 	void PlayerRestart();
 
 	//初始化UMG界面

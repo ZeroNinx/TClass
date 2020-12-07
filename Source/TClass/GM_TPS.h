@@ -67,20 +67,31 @@ public:
 	//初始化游戏
 	void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
 
+	//后台登录
+	void PostLogin(APlayerController* NewPlayer) override;
+
 	//玩家重生
-	UFUNCTION(Client,Reliable, BlueprintCallable)
+	UFUNCTION(Server,Reliable, BlueprintCallable)
 	void RespawnPlayerEvent(AController* Controller);
 
 	//多人游戏开始
 	UFUNCTION(BlueprintCallable)
 	void GameReady();
 
+	//玩家击杀
+	UFUNCTION(Server,Reliable,BlueprintCallable)
+	void AddKill(AController* Killer);
+
+	//玩家击杀
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	void AddScore(AController* Controller,int Score);
+
 	//分数广播
 	UFUNCTION(Server,Reliable, BlueprintCallable)
 	void ScoreMulticast();
 
 	//击杀广播
-	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void KillMulticast();
 
 	//游戏准备广播

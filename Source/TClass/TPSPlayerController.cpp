@@ -24,9 +24,9 @@ void ATPSPlayerController::ClientPostLogin_Implementation()
 }
 
 //Íæ¼ÒÖØÉú
-void ATPSPlayerController::PlayerRestart()
+void ATPSPlayerController::PlayerRestart_Implementation()
 {
-	AGM_TPS* GameMode = Cast<AGM_TPS>(UGameplayStatics::GetGameMode(GetWorld()));
+	AGM_TPS* GameMode = Cast<AGM_TPS>(GetWorld()->GetAuthGameMode());
 	if (GameMode)
 		GameMode->RespawnPlayerEvent(this);
 }
