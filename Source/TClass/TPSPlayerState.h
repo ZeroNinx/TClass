@@ -70,6 +70,6 @@ protected:
 
 	//Íæ¼ÒÉúÃüÖµ
 	UPROPERTY(BlueprintReadWrite)
-	int Life = 100;
+	int Life;
 
 };

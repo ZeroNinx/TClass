@@ -6,6 +6,7 @@
 ATPSPlayerState::ATPSPlayerState()
 {
 	PlayerScore = FPlayerScore();
+	Life = 100;
 }
 
 //Éè¶¨Ãû³Æ

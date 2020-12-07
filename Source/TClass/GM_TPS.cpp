@@ -9,7 +9,7 @@ void AGM_TPS::InitGame(const FString& MapName, const FString& Options, FString& 
 	Super::InitGame(MapName, Options, ErrorMessage);
 
 	//游戏默认值设置
-	
+	SetActorTickEnabled(false);
 
 	//类设置
 	TSubclassOf<ATPSCharacter> Character_C = LoadClass<ATPSCharacter>(this, TEXT("'/Game/Blueprints/BP_TPSCharacter.BP_TPSCharacter_C'"));
@@ -18,10 +18,8 @@ void AGM_TPS::InitGame(const FString& MapName, const FString& Options, FString& 
 		DefaultPawnClass = Character_C->GetClass();
 	}
 	PlayerStateClass = ATPSPlayerState::StaticClass();
-	ReplaySpectatorPlayerControllerClass = ATPSPlayerController::StaticClass();
-
+	PlayerControllerClass = ATPSPlayerController::StaticClass();
 	
-
 	//游戏数值初始化
 	bGameStart = false;
 	bGameOver = false;
@@ -228,8 +226,11 @@ void AGM_TPS::RespawnPlayerEvent_Implementation(AController* Controller)
 		ATPSCharacter* newPawn = GetWorld()->SpawnActor<ATPSCharacter>(BP_Character_C, PlayerStarts[Index]->GetActorTransform());
 		
 		//设为控制
-		if(newPawn)
+		if (newPawn)
+		{
 			Controller->Possess(newPawn);
+			
+		}
 		else
 			UKismetSystemLibrary::PrintString(this, TEXT("Spawn Failed"));
 	}
